@@ -1,0 +1,30 @@
+{
+  "name": "imageshell",
+  "version": "1.0.0",
+  "description": "Resize / upload / push to repositories like git and svn",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "bin": {
+    "imageshell": "./index.js"
+  },
+  "keywords": [
+    "resize",
+    "images",
+    "upload",
+    "images",
+    "git",
+    "svn",
+    "-",
+    "management",
+    "images"
+  ],
+  "author": "Shameem",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "commander": "^2.11.0",
+    "prompt": "^1.0.0",
+    "sharp": "^0.18.2"
+  }
+}
