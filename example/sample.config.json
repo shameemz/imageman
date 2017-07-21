@@ -1,6 +1,6 @@
 {
 	"logos": {
-		"root": "./tests/images",
+		"root": "./images",
 		"vcs": "svn",
 		"targets":[
 		{

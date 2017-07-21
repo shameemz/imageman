@@ -1,6 +1,6 @@
 {
   "name": "imageshell",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Resize / upload / push to repositories like git and svn",
   "main": "index.js",
   "scripts": {
@@ -26,5 +26,9 @@
     "commander": "^2.11.0",
     "prompt": "^1.0.0",
     "sharp": "^0.18.2"
-  }
+  },
+  "repository": { 
+      "type" : "git",
+      "url" : "https://github.com/shameemz/imageshell.git"
+    }
 }

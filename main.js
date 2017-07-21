@@ -46,6 +46,8 @@ var fns = {
 		  //.catch( err => console.log(err) );
 	},
 	processImage: function(options){
+
+		console.log(options.configfile);
 		var configJson = JSON.parse(fs.readFileSync(options.configfile));
 		var config = configJson[options.config];
 
@@ -62,6 +64,11 @@ var fns = {
 				outFile = outFile.toUpperCase();
 
 			outFile += target.outFileExt
+
+			if(config.root.indexOf('/') !== 0){
+				configPath = path.dirname(options.configfile);
+				config.root = configPath+'/'+config.root;
+			}
 			var outputFileName = config.root+'/'+target.outputPath+''+outFile;
 			//console.log(outputFileName);
 			this.resizeImage({
@@ -94,10 +101,10 @@ var fns = {
 				}
 			})
 		});
-		function commitAllFiles(credendials){
+		function commitAllFiles(){
 			var crd = '';
-			if(credendials){
-				crd = '--username '+credendials.username+' --password '+credendials.password+''
+			if(options.username){
+				crd = '--username '+username.username+' --password '+options.password+''
 			}
 			var commit = 'svn commit '+crd+' -m "'+options.commitMessage+'" '+filesToCommit.join(' ');
 			//console.log(commit);
@@ -118,25 +125,31 @@ var fns = {
 					});
 		}
 		function commitPrompt(){
-			 prompt.start();
-			 console.log("Files ready to commit:\n", filesToCommit.join("\n"));
-			prompt.get(commitIntroSchema, function (err, result) {
-			    // 
-			    // Log the results. 
-			    // 
-			    if(err || !result)
-			    	return ;
-			    if(result.commitFlag == '' || result.commitFlag.toLowerCase() == 'yes'){
-				    prompt.get(commitMessageSchema, function (err, result) {
-					    if(result.commitMessage)
-					    	options.commitMessage = result.commitMessage;
-					    commitAllFiles();
-					});
-				    //prompt.stop();
-				}else{
-					prompt.stop();
-				}
-			});
+
+			if(options.username && options.password && options.commitMessage){
+				 commitAllFiles();
+			}else{
+
+				prompt.start();
+				console.log("Files ready to commit:\n", filesToCommit.join("\n"));
+				prompt.get(commitIntroSchema, function (err, result) {
+				    // 
+				    // Log the results. 
+				    // 
+				    if(err || !result)
+				    	return ;
+				    if(result.commitFlag == '' || result.commitFlag.toLowerCase() == 'yes'){
+					    prompt.get(commitMessageSchema, function (err, result) {
+						    if(result.commitMessage)
+						    	options.commitMessage = result.commitMessage;
+						    commitAllFiles();
+						});
+					    //prompt.stop();
+					}else{
+						prompt.stop();
+					}
+				});
+			}
 
 			
 		}
@@ -146,7 +159,9 @@ var fns = {
 			    // 
 			    // Log the results. 
 			    // 
-			      commitAllFiles(result);
+			    options.username = result.username;
+			    options.password = result.password;
+			      commitAllFiles();
 				
 			});
 			
