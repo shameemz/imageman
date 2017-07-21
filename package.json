@@ -1,6 +1,6 @@
 {
   "name": "imageshell",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Resize / upload / push to repositories like git and svn",
   "main": "index.js",
   "scripts": {
