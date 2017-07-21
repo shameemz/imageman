@@ -10,15 +10,10 @@
     "imageshell": "./index.js"
   },
   "keywords": [
-    "resize",
-    "images",
-    "upload",
-    "images",
-    "git",
-    "svn",
-    "-",
-    "management",
-    "images"
+    "resize images",
+    "upload to git",
+    "upload to svn",
+    "image distribution"
   ],
   "author": "Shameem",
   "license": "Apache-2.0",
