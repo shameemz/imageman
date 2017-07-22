@@ -12,8 +12,13 @@ program
 .option('-n, --outputfilename <outputfilename>', 'outputfilename')
 .option('-u, --username <username>', 'username')
 .option('-p, --password <password>', 'password')
+.option('-v, --verbose <verbose>', 'verbose')
 .action(function(file) {
 
+	if(!program.config)
+		return console.error('Error: -c [config-name] is required.')
+	if(!program.configfile)
+		return console.error('Error: -f [config-file] is required.')
 	main.processImage({
 		filePath: file,
 		config: program.config,

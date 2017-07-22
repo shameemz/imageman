@@ -1,7 +1,7 @@
 {
 	"logos": {
 		"root": "./images",
-		"vcs": "svn",
+		"vcs": "git",
 		"targets":[
 		{
 			"outputPath": "dest/",

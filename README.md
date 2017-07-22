@@ -6,7 +6,9 @@ Imageshell uses sharp npm package for resizing images
 
 ##### Usage
 npm install -g imageshell
+
 Create a sample.config similar to https://github.com/shameemz/imageshell/example/sample.config.json
+
 imageshell -c logos -f sample.config.json images/src/KC.png 
 
 For more details: https://github.com/shameemz/imageshell/
