@@ -1,13 +1,16 @@
 {
-  "name": "imageshell",
-  "version": "0.0.3-alpha-1",
+  "name": "imageman",
+  "version": "0.0.9",
   "description": "Resize / upload / push to repositories like git and svn",
-  "main": "index.js",
+  "main": "./lib/main.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "compile": "babel src --out-dir lib",
+    "prepublish": "npm run compile",
+    "release": "standard-version"
   },
   "bin": {
-    "imageshell": "./index.js"
+    "imageman": "./lib/cli.js"
   },
   "keywords": [
     "resize images",
@@ -18,13 +21,16 @@
   "author": "Shameem",
   "license": "Apache-2.0",
   "dependencies": {
-    "async": "^2.5.0",
-    "commander": "^2.11.0",
+    "async": "^2.6.0",
+    "commander": "^2.12.2",
     "prompt": "^1.0.0",
-    "sharp": "^0.18.2"
+    "sharp": "^0.20.2"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/shameemz/imageshell.git"
+    "url": "https://github.com/shameemz/imageman.git"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
   }
 }

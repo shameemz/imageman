@@ -1,0 +1,26 @@
+{
+	"logos": {
+		"root": "./images",
+		"vcs": "git",
+		"targets":[
+		{
+			"outputPath": "dest/",
+			"outFileSuffix": "",
+			"outFilePrefix": "",
+			"outFileExt": ".gif",
+			"outFileMimeType":"gif",
+			"outFileFormatUppercase":true,
+			"size":{ "width": 27,"height": 23}
+		},
+		{
+			"outputPath": "dest/",
+			"outFileSuffix": "",
+			"outFilePrefix": "a",
+			"outFileExt": ".png",
+			"outFileMimeType":"png",
+			"outFileFormatLowercase":true,
+			"size":{ "width": 27,"height": 23}
+		}
+		]
+	}
+}
