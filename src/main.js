@@ -39,8 +39,7 @@ var fns = {
 	resizeImage: function(options, callback){
 		var sh = sharp(options.filePath);
 		if(options.targetConfig.size.width || options.targetConfig.size.height){	
-		  sh.resize(options.targetConfig.size.width , options.targetConfig.size.height)
-		  .max()
+		  sh.resize(options.targetConfig.size.width , options.targetConfig.size.height,  {fit: sharp.fit.inside})
 		}
 		if(options.targetConfig.outFileMimeType){
 			if(sh[options.targetConfig.outFileMimeType] == 'function')
