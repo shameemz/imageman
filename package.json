@@ -21,7 +21,7 @@
   "author": "Shameem",
   "license": "Apache-2.0",
   "dependencies": {
-    "async": "^2.6.0",
+    "async": "^3.2.2",
     "commander": "^2.12.2",
     "prompt": "^1.0.0",
     "sharp": "^0.20.2"
